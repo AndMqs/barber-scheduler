@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15.7
+    container_name: barber_scheduler_db
+    restart: always
+    environment:
+      POSTGRES_USER: barber_user
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: barber_scheduler
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
